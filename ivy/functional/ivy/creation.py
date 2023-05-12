@@ -423,6 +423,41 @@ def zeros(
     return current_backend().zeros(shape, dtype=dtype, device=device, out=out)
 
 
+def zeros_initilizer(
+    shape: Union[ivy.Shape, ivy.NativeShape],
+    *,
+    dtype: Optional[Union[ivy.Dtype, ivy.NativeDtype]] = None,
+    device: Optional[Union[ivy.Device, ivy.NativeDevice]] = None,
+    out: Optional[ivy.Array] = None,
+):
+    """
+    Zero initializer that generates tensors initialized to 0.
+
+    Initializers allow you to pre-specify an initialization strategy, encoded in
+    the Initializer object, without knowing the shape and dtype of the variable
+    being initialized.
+
+    Parameters
+    ----------
+    shape
+       output array shape.
+    dtype
+       output array data type. If ``dtype`` is ``None``, the output array data type must
+       be the default floating-point data type. Default  ``None``.
+    device
+       device on which to place the created array. Default: ``None``.
+    out
+        optional output array, for writing the result to. It must have a shape that the
+        inputs broadcast to.
+
+    Returns zero initializer
+    -------
+    """
+    return current_backend().zeros_initilizer(
+        shape, dtype=dtype, device=device, out=out
+    )
+
+
 @handle_nestable
 @handle_array_like_without_promotion
 @handle_out_argument
