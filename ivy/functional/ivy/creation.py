@@ -423,6 +423,14 @@ def zeros(
     return current_backend().zeros(shape, dtype=dtype, device=device, out=out)
 
 
+@handle_nestable
+@handle_array_like_without_promotion
+@handle_out_argument
+@inputs_to_native_shapes
+@outputs_to_ivy_arrays
+@handle_array_function
+@infer_dtype
+@infer_device
 def zeros_initilizer(
     shape: Union[ivy.Shape, ivy.NativeShape],
     *,
