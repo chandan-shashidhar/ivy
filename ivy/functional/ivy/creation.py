@@ -431,7 +431,7 @@ def zeros(
 @handle_array_function
 @infer_dtype
 @infer_device
-def zeros_initilizer(
+def zeros_initializer(
     shape: Union[ivy.Shape, ivy.NativeShape],
     *,
     dtype: Optional[Union[ivy.Dtype, ivy.NativeDtype]] = None,
